@@ -29,16 +29,23 @@ def palindromeDescendent(number):
     print("Number is uneven, cannot find palindrome descendent")
     return False
   
+  if strNumber == strNumber[::-1]:
+    return True
 
   newNumber = ""
 
   for i in range(0, len(strNumber), 2):
     newNumber += str(int(strNumber[i]) + int(strNumber[i+1]))
 
+  print(newNumber)
+
   if newNumber == newNumber[::-1]:
     return True
   else:
-    return False
+    if len(newNumber) >= 2:
+      return palindromeDescendent(int(newNumber))
+    else:
+      return False
 
 '''
 Coding Challenge 2: Next Largest Number
@@ -70,7 +77,7 @@ def largestNumberPermutation(number):
 
     
 
-print(palindromeDescendent(123312))
+print(palindromeDescendent(1121123025))
 
-largestNumberPermutation("1291356")
+#largestNumberPermutation("1291356")
 
